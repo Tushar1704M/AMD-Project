@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+{% block content %}
+<div style="padding: 100px 80px; text-align:center;">
+    <h1 style="font-size: 4rem;">PERVASIVE_AI_ENGINE</h1>
+    <p style="font-size:1.5rem; color:#888; margin: 20px auto; max-width:800px;">From Edge to Cloud, AMD powers the AI revolution with XDNA™ and CDNA™ architectures.</p>
+    
+    <div style="display:grid; grid-template-columns: repeat(3, 1fr); gap:30px; margin-top:60px;">
+        <div style="background:#111; padding:40px; border-radius:15px; border:1px solid #222;">
+            <h3 style="color:var(--amd);">RYZEN™ AI</h3>
+            <p>60+ TOPs local processing for Windows 12 AI workloads.</p>
+        </div>
+        <div style="background:#111; padding:40px; border-radius:15px; border:1px solid #222;">
+            <h3 style="color:var(--amd);">INSTINCT™ MI350</h3>
+            <p>Scaling LLMs with CDNA 4 and 288GB HBM3e VRAM.</p>
+        </div>
+        <div style="background:#111; padding:40px; border-radius:15px; border:1px solid #222;">
+            <h3 style="color:var(--amd);">ROCm™ 6.4</h3>
+            <p>Open source software ecosystem for unified GPU compute.</p>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+{% block content %}
+<div style="padding: 100px 80px;">
+    <h1 style="font-size: 5rem; letter-spacing: -3px; color: var(--amd);">CHIPLET_INNOVATION</h1>
+    <div style="margin-top: 50px; display: grid; grid-template-columns: 1fr 1fr; gap: 60px;">
+        <div style="background: var(--card); padding: 50px; border-radius: 20px;">
+            <h2 style="color:white;">2nd Gen 3D V-Cache™</h2>
+            <p style="color:#aaa; line-height:1.8;">Hybrid-bonded cache stacking with 9μm pitch, allowing for 2.5TB/s vertical bandwidth. This architectural breakthrough eliminates L3-to-CCD latency bottlenecks.</p>
+        </div>
+        <div style="background: var(--card); padding: 50px; border-radius: 20px;">
+            <h2 style="color:white;">Zen 6 Pipeline</h2>
+            <p style="color:#aaa; line-height:1.8;">Our 2026 Zen 6 cores feature a 20% IPC uplift, broader dispatch widths, and dedicated INT8/FP16 pipelines for local AI inference without consuming GPU resources.</p>
+        </div>
+    </div>
+</div>
+{% endblock %}

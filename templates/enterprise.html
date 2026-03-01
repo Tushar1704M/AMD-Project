@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+{% block content %}
+<div style="padding: 100px 80px;">
+    <h1 style="font-size: 4.5rem; letter-spacing: -3px;">ENTERPRISE_EXASCALE_</h1>
+    <p style="font-size: 1.5rem; color: #888; max-width: 900px;">AMD EPYC™ processors power the world’s most efficient and powerful data centers, from public clouds to private enterprise clusters.</p>
+    
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 60px;">
+        <div style="background: #111; padding: 50px; border: 1px solid #222; border-radius: 20px;">
+            <h2 style="color: var(--amd);">EPYC™ 9005 SERIES</h2>
+            <p>Up to 192 cores per socket with Zen 5c high-density architecture. 2.5x more efficient than legacy server farms.</p>
+        </div>
+        <div style="background: #111; padding: 50px; border: 1px solid #222; border-radius: 20px;">
+            <h2 style="color: var(--amd);">INSTINCT™ MI350X</h2>
+            <p>Purpose-built for Generative AI. 288GB HBM3e for training massive transformer models at scale.</p>
+        </div>
+    </div>
+</div>
+{% endblock %}

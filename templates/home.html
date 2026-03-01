@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+{% block content %}
+<div style="padding: 100px 80px; display: flex; align-items: center; justify-content: center; min-height: 80vh;">
+    <div style="background: #111; padding: 60px; border-radius: 30px; border: 1px solid #222; width: 700px; text-align: center;">
+        <h1 style="font-size: 3rem; margin-bottom: 10px; letter-spacing: -2px;">WORKLOAD_ADVISOR</h1>
+        <p style="color: #888; margin-bottom: 40px;">Select your processing requirements to map the optimal silicon architecture.</p>
+        
+        <div style="text-align: left; margin-bottom: 25px;">
+            <label style="color: var(--amd); font-weight: bold; font-size: 0.8rem; letter-spacing: 1px;">PRIMARY COMPUTATION DOMAIN</label>
+            <select id="w" style="width: 100%; padding: 18px; background: #000; border: 1px solid #333; color: white; border-radius: 10px; margin-top: 10px;">
+                <option value="gaming">ULTRA_GAMING / REAL-TIME RAY TRACING</option>
+                <option value="creative">AI MODEL TRAINING / 3D RENDERING</option>
+                <option value="enterprise">DATA CENTER VIRTUALIZATION / PRO SECURITY</option>
+            </select>
+        </div>
+
+        <button onclick="analyze()" class="btn-red" style="width: 100%; border: none; cursor: pointer; font-size: 1.1rem;">EXECUTE NEURAL MATCH</button>
+
+        <div id="advisor-res" style="display: none; margin-top: 40px; border-top: 1px solid #222; padding-top: 30px; animation: fadeInUp 0.5s;">
+            <small style="color: #666;">OPTIMAL_MATCH_IDENTIFIED</small>
+            <h2 id="pName" style="color: #fff; font-size: 2.5rem; margin: 10px 0;"></h2>
+            <p id="pDesc" style="color: #aaa; margin-bottom: 30px;"></p>
+            <a id="pLink" href="#" class="btn-red" style="background: white; color: black; padding: 15px 40px;">OPEN ENGINEERING DATA</a>
+        </div>
+    </div>
+</div>
+
+<script>
+    function analyze() {
+        const w = document.getElementById('w').value;
+        let pid = (w === 'creative') ? 'ryzen9' : (w === 'gaming' ? 'gaming_pc' : 'ryzen5');
+        const names = {'ryzen9': 'Ryzen™ 9 9950X3D', 'gaming_pc': 'AMD Advantage™ Extreme', 'ryzen5': 'Ryzen™ 5 Pro 4650G'};
+        const descs = {
+            'ryzen9': 'Optimized for Zen 5 IPC gains and massive 3D V-Cache rendering workloads.',
+            'gaming_pc': 'Engineered for Smart Access Memory 2.0 and RDNA 4 throughput synergy.',
+            'ryzen5': 'Features AMD Shadow Stack and Memory Guard for hardware-level security.'
+        };
+        
+        document.getElementById('pName').innerText = names[pid];
+        document.getElementById('pDesc').innerText = descs[pid];
+        document.getElementById('pLink').href = "/product/" + pid;
+        document.getElementById('advisor-res').style.display = 'block';
+    }
+</script>
+{% endblock %}

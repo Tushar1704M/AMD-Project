@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AMD | Enterprise Global Hub</title>
+    <style>
+        :root { --amd: #ed1c24; --bg: #050505; }
+        body { margin:0; background:var(--bg); color:white; font-family:'Segoe UI', sans-serif; overflow-x:hidden; }
+        
+        /* THE MASTER NAVIGATION BAR */
+        nav { 
+            padding: 20px 50px; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            background: rgba(0,0,0,0.9); 
+            backdrop-filter: blur(20px); 
+            position: sticky; 
+            top:0; 
+            z-index: 2000; 
+            border-bottom: 1px solid #222; 
+        }
+
+        /* Nav Logo */
+        .logo img { width: 100px; transition: 0.3s; }
+        .logo img:hover { filter: drop-shadow(0 0 10px var(--amd)); }
+
+        /* Navigation Tabs Logic */
+        .nav-links { display: flex; gap: 15px; flex-wrap: wrap; }
+        .nav-links a { 
+            color: #888; 
+            text-decoration: none; 
+            font-size: 0.7rem; 
+            font-weight: bold; 
+            letter-spacing: 1px; 
+            text-transform: uppercase; 
+            padding: 10px 12px;
+            transition: 0.3s;
+            border-radius: 5px;
+        }
+        .nav-links a:hover { 
+            color: #fff; 
+            background: rgba(237, 28, 36, 0.1);
+            text-shadow: 0 0 8px var(--amd);
+        }
+
+        /* Active Tab Highlight (Optional) */
+        .nav-links a.active { color: var(--amd); border-bottom: 2px solid var(--amd); }
+
+        .footer { padding: 60px; border-top: 1px solid #111; text-align: center; color: #444; font-size: 0.8rem; }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">
+            <a href="/"><img src="https://upload.wikimedia.org/wikipedia/commons/7/7c/AMD_Logo.svg" alt="AMD"></a>
+        </div>
+
+        <div class="nav-links">
+            <a href="/home">Home</a>
+            <a href="/catalog">Products</a>
+            <a href="/technology">Architecture</a>
+            <a href="/ai">AI Engine</a>
+            <a href="/gaming">Gaming</a>
+            <a href="/enterprise" style="color: #fff; border: 1px solid #333;">Enterprise</a> <a href="/green" style="color: #4CAF50;">Sustainability</a> <a href="/investors">Investors</a>
+            <a href="/news" style="color: var(--amd);">[ News ]</a>
+            <a href="/support">Support</a>
+        </div>
+    </nav>
+
+    <div style="min-height: 85vh;">
+        {% block content %}{% endblock %}
+    </div>
+
+    <div class="footer">
+        © 2026 Advanced Micro Devices, Inc. | Exascale Computing Division | Nagpur Center
+    </div>
+</body>
+</html>

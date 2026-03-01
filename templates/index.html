@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+{% block content %}
+<div style="height: 92vh; display: flex; flex-direction: column; align-items: center; justify-content: center; background: radial-gradient(circle at center, #1a0505 0%, #050505 100%); position: relative; overflow: hidden;">
+    
+    <div style="position: absolute; bottom: 0; width: 100%; background: rgba(237, 28, 36, 0.05); border-top: 1px solid rgba(237, 28, 36, 0.3); padding: 15px 0; white-space: nowrap;">
+        <div style="display: inline-block; animation: scrollNews 30s linear infinite; color: #fff; font-family: monospace; font-size: 0.85rem; letter-spacing: 1px;">
+            <span style="color: #ed1c24; font-weight: bold;">[SYSTEM_UPDATE]</span> Ryzen™ 9 9950X3D benchmarks leak: 30% faster in LLM processing... 
+            <span style="color: #ed1c24; font-weight: bold; margin-left: 60px;">[FINANCIAL]</span> AMD Stock hits all-time high on AI Instinct™ demand...
+            <span style="color: #ed1c24; font-weight: bold; margin-left: 60px;">[BREAKING]</span> Lisa Su confirms Zen 6 architecture tape-out on 2nm node...
+            <a href="/news" style="color: #ed1c24; text-decoration: underline; margin-left: 60px; font-weight: bold;">EXPLORE ALL LOGS →</a>
+        </div>
+    </div>
+
+    <div style="text-align: center; z-index: 10;">
+        <h1 style="font-size: 7.5rem; font-weight: 900; margin:0; letter-spacing:-7px; line-height:0.85; color: #fff;">SILICON.<br><span style="color: #ed1c24;">EVOLVED.</span></h1>
+        <p style="font-size: 1.5rem; color: #666; margin-top: 35px; letter-spacing: 6px; font-weight: 200;">DEFINING THE 2026 EXASCALE ERA</p>
+        
+        <div style="margin-top: 55px; display: flex; gap: 20px; justify-content: center;">
+            <a href="/catalog" class="btn-red" style="font-size: 1.1rem; padding: 20px 50px;">EXPLORE ECOSYSTEM</a>
+            <a href="/technology" style="border: 1px solid #444; color: white; padding: 20px 50px; text-decoration: none; border-radius: 50px; font-weight: bold; transition: 0.3s;" onmouseover="this.style.background='#fff'; this.style.color='#000'">TECH BLUEPRINT</a>
+        </div>
+    </div>
+
+    <div style="position: absolute; width: 600px; height: 600px; background: radial-gradient(circle, rgba(237, 28, 36, 0.1) 0%, transparent 70%); z-index: 1; pointer-events: none;"></div>
+</div>
+
+<style>
+    @keyframes scrollNews {
+        from { transform: translateX(100%); }
+        to { transform: translateX(-100%); }
+    }
+    @keyframes fadeInUp {
+        from { opacity: 0; transform: translateY(30px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+    h1 { animation: fadeInUp 1s ease-out; }
+</style>
+{% endblock %}

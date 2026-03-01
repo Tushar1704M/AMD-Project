@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+{% block content %}
+<div style="padding: 100px 80px;">
+    <h1 style="font-size: 4rem;">AMD_PORTFOLIO_2026</h1>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 40px; margin-top:50px;">
+        {% for id, p in products.items() %}
+        <div style="background: #111; padding: 40px; border-radius: 20px; border: 1px solid #222; transition:0.3s;" onmouseover="this.style.borderColor='#ed1c24'" onmouseout="this.style.borderColor='#222'">
+            <small style="color:var(--amd); font-weight:bold;">{{ p.node }}</small>
+            <h2 style="font-size:2.2rem; margin:15px 0;">{{ p.name }}</h2>
+            <p style="color:#666; line-height:1.6;">{{ p.summary }}</p>
+            <div style="margin-top:30px;">
+                <a href="/product/{{id}}" class="btn-red" style="padding:10px 25px; font-size:0.9rem;">VIEW DATASHEET</a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

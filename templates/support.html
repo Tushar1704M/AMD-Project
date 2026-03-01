@@ -1,0 +1,73 @@
+{% extends "layout.html" %}
+{% block content %}
+<div style="padding: 100px 80px; text-align: center;">
+    <h1 style="font-size: 4rem; margin: 0; letter-spacing: -2px;">RESOURCE_CENTER</h1>
+    <p style="color: #666; font-size: 1.2rem; margin-top: 10px;">Official AMD Drivers, Documentation, and Global Support Infrastructure.</p>
+    
+    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-top: 60px;">
+        <div style="padding: 50px; border: 1px solid #222; border-radius: 15px; background: #080808; transition: 0.3s; border-top: 4px solid transparent;" onmouseover="this.style.borderColor='#ed1c24'">
+            <h3 style="color: #ed1c24; letter-spacing: 2px;">DRIVERS</h3>
+            <p style="font-size: 0.9rem; color: #666;">Software Adrenalin Edition & ROCm™ Open Stack.</p>
+            <button onclick="simulateAction('DRIVERS', 'Fetching latest Adrenalin_2026_WHQL.exe from Global CDN... Size: 642MB. Requesting Handshake...')" style="background: white; color: black; border: none; padding: 15px 30px; font-weight: bold; border-radius: 5px; margin-top: 20px; cursor: pointer;">DOWNLOAD</button>
+        </div>
+
+        <div style="padding: 50px; border: 1px solid #222; border-radius: 15px; background: #080808; transition: 0.3s; border-top: 4px solid transparent;" onmouseover="this.style.borderColor='#ed1c24'">
+            <h3 style="color: #ed1c24; letter-spacing: 2px;">WARRANTY</h3>
+            <p style="font-size: 0.9rem; color: #666;">Register hardware and verify serial authenticity.</p>
+            <button onclick="simulateAction('WARRANTY', 'Connecting to AMD_GLOBAL_SECURE_SERVER... Waiting for Hardware Serial Input... Ready.')" style="background: white; color: black; border: none; padding: 15px 30px; font-weight: bold; border-radius: 5px; margin-top: 20px; cursor: pointer;">REGISTER</button>
+        </div>
+
+        <div style="padding: 50px; border: 1px solid #222; border-radius: 15px; background: #080808; transition: 0.3s; border-top: 4px solid transparent;" onmouseover="this.style.borderColor='#ed1c24'">
+            <h3 style="color: #ed1c24; letter-spacing: 2px;">COMMUNITY</h3>
+            <p style="font-size: 0.9rem; color: #666;">Direct interface with AMD Master Engineers.</p>
+            <button onclick="simulateAction('COMMUNITY', 'Authenticating Neural Link to Developer Forums... User: Guest_Developer. Status: Online.')" style="background: white; color: black; border: none; padding: 15px 30px; font-weight: bold; border-radius: 5px; margin-top: 20px; cursor: pointer;">JOIN FORUM</button>
+        </div>
+    </div>
+
+    <div id="tech-terminal" style="display: none; margin: 60px auto; max-width: 900px; background: #000; border: 1px solid #333; padding: 30px; border-radius: 10px; text-align: left; font-family: 'Courier New', monospace; box-shadow: 0 0 50px rgba(237,28,36,0.1);">
+        <div style="display: flex; gap: 10px; margin-bottom: 20px;">
+            <div style="width: 12px; height: 12px; border-radius: 50%; background: #ff5f56;"></div>
+            <div style="width: 12px; height: 12px; border-radius: 50%; background: #ffbd2e;"></div>
+            <div style="width: 12px; height: 12px; border-radius: 50%; background: #27c93f;"></div>
+        </div>
+        <div id="term-header" style="color: #ed1c24; font-weight: bold; margin-bottom: 10px;"></div>
+        <div id="term-body" style="color: #0f0; line-height: 1.6;"></div>
+        <div style="color: #fff; margin-top: 15px;">
+            > <span style="border-left: 8px solid #fff; animation: blink 0.7s infinite;"></span>
+        </div>
+    </div>
+</div>
+
+<style>
+    @keyframes blink { 50% { opacity: 0; } }
+</style>
+
+<script>
+    function simulateAction(title, msg) {
+        const terminal = document.getElementById('tech-terminal');
+        const header = document.getElementById('term-header');
+        const body = document.getElementById('term-body');
+        
+        terminal.style.display = 'block';
+        header.innerText = `[AMD_SYSTEM_EXECUTION: ${title}]`;
+        
+        // Typing effect logic taaki real lage
+        body.innerText = "";
+        let i = 0;
+        function typeWriter() {
+            if (i < msg.length) {
+                body.innerText += msg.charAt(i);
+                i++;
+                setTimeout(typeWriter, 25);
+            }
+        }
+        typeWriter();
+        
+        // Auto-scroll to show the terminal
+        window.scrollTo({
+            top: terminal.offsetTop - 100,
+            behavior: 'smooth'
+        });
+    }
+</script>
+{% endblock %}

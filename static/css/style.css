@@ -1,0 +1,88 @@
+/* Futuristic AMD Theme CSS */
+
+body {
+    margin: 0;
+    padding: 0;
+    background: radial-gradient(circle, #1a1a1a 0%, #000000 100%);
+    color: #ffffff;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    overflow: hidden; /* Scrollbar hatane ke liye */
+}
+
+/* UI Overlay Container */
+#ui-overlay {
+    position: absolute;
+    top: 40px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 100;
+    pointer-events: none; /* Mouse 3D model ko rotate kar sake */
+}
+
+/* AMD Logo Animation */
+.logo {
+    width: 180px;
+    filter: drop-shadow(0 0 10px rgba(237, 28, 36, 0.5));
+    margin-bottom: 30px;
+    animation: glow 2s infinite alternate;
+}
+
+@keyframes glow {
+    from { filter: drop-shadow(0 0 5px rgba(237, 28, 36, 0.4)); }
+    to { filter: drop-shadow(0 0 20px rgba(237, 28, 36, 0.8)); }
+}
+
+/* Product Info Card */
+#product-box {
+    background: rgba(20, 20, 20, 0.85);
+    border-left: 5px solid #ed1c24; /* AMD Red accent */
+    border-radius: 0 15px 15px 0;
+    padding: 30px;
+    width: 450px;
+    backdrop-filter: blur(10px); /* Glassmorphism effect */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    transition: all 0.5s ease;
+}
+
+h1 {
+    margin: 0;
+    font-size: 2.2rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #ed1c24;
+}
+
+p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #cccccc;
+    margin-top: 15px;
+}
+
+/* Gesture Hint at Bottom */
+.hint {
+    position: absolute;
+    bottom: 40px;
+    width: 100%;
+    text-align: center;
+    font-weight: 300;
+    letter-spacing: 2px;
+    color: rgba(255, 255, 255, 0.5);
+    text-transform: uppercase;
+    font-size: 0.9rem;
+}
+
+/* Camera Feed Mini-Window */
+#video-feed {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    width: 180px;
+    height: 135px;
+    border: 2px solid #333;
+    border-radius: 10px;
+    opacity: 0.7;
+    transform: scaleX(-1); /* Mirror camera for easier gestures */
+}

@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+{% block content %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+
+<div style="position:fixed; top:120px; left:80px; z-index:100; pointer-events:none;">
+    <h1 style="color:black; font-size:4rem; margin:0;">{{ p.name }}</h1>
+    <p style="color:var(--amd); font-weight:bold; letter-spacing:4px;">[DIGITAL_TWIN_SIMULATION_ACTIVE]</p>
+</div>
+
+<div id="inspector-3d" style="height:90vh; background:white;"></div>
+
+<script>
+    const scene = new THREE.Scene();
+    scene.background = new THREE.Color(0xffffff);
+    const camera = new THREE.PerspectiveCamera(40, window.innerWidth/window.innerHeight, 0.1, 1000);
+    const renderer = new THREE.WebGLRenderer({ antialias: true });
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setPixelRatio(window.devicePixelRatio);
+    document.getElementById('inspector-3d').appendChild(renderer.domElement);
+
+    scene.add(new THREE.AmbientLight(0xffffff, 1.2));
+    const l1 = new THREE.DirectionalLight(0xffffff, 1.5); l1.position.set(5,10,5); scene.add(l1);
+    const l2 = new THREE.DirectionalLight(0xffffff, 1.5); l2.position.set(-5,10,-5); scene.add(l2);
+
+    new THREE.GLTFLoader().load('/static/models/{{ p.file }}', (gltf) => {
+        const m = gltf.scene;
+        const box = new THREE.Box3().setFromObject(m);
+        const center = box.getCenter(new THREE.Vector3());
+        m.position.sub(center);
+        const size = box.getSize(new THREE.Vector3()).length();
+        m.scale.setScalar(7.5 / size);
+        scene.add(m);
+    });
+
+    const controls = new THREE.OrbitControls(camera, renderer.domElement);
+    controls.enableDamping = true;
+    camera.position.z = 11;
+    function animate() { requestAnimationFrame(animate); controls.update(); renderer.render(scene, camera); }
+    animate();
+</script>
+{% endblock %}
